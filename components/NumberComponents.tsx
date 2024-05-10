@@ -37,7 +37,7 @@ const NumberInput: React.FC<NumberInputProps> = ({ multiplier }) => {
       //   style={{ display: "flex", alignItems: "center", marginBottom: "20px" }}
       className="container w-full flex flex-col justify-center space-y-3 px-6 pt-4 pb-6"
     >
-      <p className="font-bold py-3">π1 = $28.5 </p>
+      <p className="font-bold py-3">π1 = $53.7 </p>
       <p className="font-bold">
         Pi coins to swap <span className="text-red-500">*</span>
       </p>

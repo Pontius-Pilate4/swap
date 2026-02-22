@@ -56,7 +56,7 @@ const Landing = () => {
         )}
       </AnimatePresence>
       <div className="flex flex-col lg:flex-row min-h-screen padding-x relative z-10 items-center lg:items-center pt-28 lg:pt-0 max-w-full overflow-x-hidden">
-        <div className="flex flex-col gap-6 lg:w-1/2 z-20 text-center lg:text-left items-center lg:items-start">
+        <div className="flex flex-col gap-6 lg:w-1/2 z-20 text-center lg:text-left items-center lg:items-start w-full max-w-full overflow-hidden">
           <motion.div
             variants={slideIn('left', 'tween', 0.2, 0.75)}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-900/30 border border-purple-500/20 w-fit"
@@ -67,14 +67,14 @@ const Landing = () => {
 
           <TitleText
             title="Unlock The Value Of Your Pi"
-            textStyles="text-3xl xs:text-4xl sm:text-7xl lg:text-8xl tracking-tight leading-[1.05] font-bold font-lexend bg-clip-text text-transparent bg-gradient-to-r from-white via-purple-100 to-yellow-300 max-w-4xl text-balance w-full"
+            textStyles="text-2xl xs:text-3xl sm:text-7xl lg:text-8xl tracking-tight leading-[1.05] font-bold font-lexend bg-clip-text text-transparent bg-gradient-to-r from-white via-purple-100 to-yellow-300 max-w-4xl text-balance w-full"
           />
 
           <motion.p
             variants={slideIn('up', 'tween', 0.5, 0.75)}
             initial="hidden"
             whileInView="show"
-            className="text-balance text-sm xs:text-base sm:text-lg lg:text-xl text-gray-300 font-work tracking-wide mt-2 leading-relaxed max-w-2xl px-2 lg:px-0 w-full"
+            className="text-balance text-xs xs:text-base sm:text-lg lg:text-xl text-gray-300 font-work tracking-wide mt-2 leading-relaxed max-w-2xl px-2 lg:px-0 w-full"
           >
             While centralized exchanges trade on volatility, our DEX trades on Consensus. We support the GCV $314.159 standard, empowering Pioneers to realize the true utility value of their mining efforts.
           </motion.p>

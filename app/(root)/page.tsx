@@ -59,15 +59,15 @@ const Landing = () => {
         <div className="flex flex-col gap-6 lg:w-1/2 z-20 text-center lg:text-left items-center lg:items-start w-full max-w-full overflow-hidden">
           <motion.div
             variants={slideIn('left', 'tween', 0.2, 0.75)}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-900/30 border border-purple-500/20 w-fit"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-900/30 border border-purple-500/20 w-fit mx-auto lg:mx-0"
           >
             <span className="w-2 h-2 rounded-full bg-yellow-400 animate-pulse" />
-            <span className="text-sm font-medium text-purple-200">The Future of Mobile Mining</span>
+            <span className="text-xs xs:text-sm font-medium text-purple-200">The Future of Mobile Mining</span>
           </motion.div>
 
           <TitleText
             title="Unlock The Value Of Your Pi"
-            textStyles="text-2xl xs:text-3xl sm:text-7xl lg:text-8xl tracking-tight leading-[1.05] font-bold font-lexend bg-clip-text text-transparent bg-gradient-to-r from-white via-purple-100 to-yellow-300 max-w-4xl text-balance w-full"
+            textStyles="text-2xl xs:text-3xl sm:text-7xl lg:text-8xl tracking-tight leading-[1.05] font-bold font-lexend bg-clip-text text-transparent bg-gradient-to-r from-white via-purple-100 to-yellow-300 max-w-full text-balance w-full break-normal whitespace-normal"
           />
 
           <motion.p
@@ -119,17 +119,17 @@ const Landing = () => {
 
         <motion.div
           variants={slideIn('right', 'tween', 0.3, 1)}
-          className="lg:w-1/2 relative mt-16 lg:mt-0 flex justify-center items-center w-full"
+          className="lg:w-1/2 relative mt-16 lg:mt-0 flex justify-center items-center w-full min-h-[300px]"
         >
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] bg-purple-600/20 blur-[100px] rounded-full mix-blend-screen pointer-events-none" />
 
-          <div className="relative w-full max-w-[320px] sm:max-w-md lg:max-w-xl px-6 lg:px-0">
+          <div className="relative w-full max-w-[280px] xs:max-w-xs sm:max-w-md lg:max-w-xl px-2 lg:px-0">
             <Image
               src="/pi_video-6.webp"
               alt="Pi Network App"
               width={600}
               height={600}
-              className="relative z-10 drop-shadow-2xl lg:hover:-translate-y-4 transition-transform duration-700 w-full h-auto rounded-3xl lg:rounded-[3rem]"
+              className="relative z-10 drop-shadow-2xl lg:hover:-translate-y-4 transition-transform duration-700 w-full h-auto rounded-3xl lg:rounded-[3rem] opacity-100 scale-100"
               priority
             />
           </div>

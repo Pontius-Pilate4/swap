@@ -55,8 +55,8 @@ const Landing = () => {
           </motion.div>
         )}
       </AnimatePresence>
-      <div className="flex flex-col lg:flex-row lg:min-h-screen padding-x relative z-10 items-center lg:items-start pt-20 lg:pt-32">
-        <div className="flex flex-col gap-6 lg:w-1/2 z-20">
+      <div className="flex flex-col lg:flex-row min-h-screen padding-x relative z-10 items-center lg:items-center pt-28 lg:pt-0">
+        <div className="flex flex-col gap-6 lg:w-1/2 z-20 text-center lg:text-left items-center lg:items-start">
           <motion.div
             variants={slideIn('left', 'tween', 0.2, 0.75)}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-900/30 border border-purple-500/20 w-fit"
@@ -67,47 +67,48 @@ const Landing = () => {
 
           <TitleText
             title="Unlock The Value Of Your Pi"
-            textStyles="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl tracking-tight leading-[1.1] font-bold font-lexend bg-clip-text text-transparent bg-gradient-to-r from-white via-purple-100 to-yellow-300"
+            textStyles="text-5xl xs:text-6xl sm:text-7xl lg:text-8xl tracking-tight leading-[1.05] font-bold font-lexend bg-clip-text text-transparent bg-gradient-to-r from-white via-purple-100 to-yellow-300 max-w-4xl"
           />
 
           <motion.p
             variants={slideIn('up', 'tween', 0.5, 0.75)}
             initial="hidden"
             whileInView="show"
-            className="text-lg sm:text-xl text-gray-300 font-work tracking-wide mt-2 leading-relaxed max-w-2xl"
+            className="text-lg sm:text-xl text-gray-300 font-work tracking-wide mt-2 leading-relaxed max-w-2xl px-2 lg:px-0"
           >
-            While centralized exchanges trade on volatility, our DEX trades on Consensus. We support the GCV $314.159 standard, empowering Pioneers to realize the true utility value of their mining efforts without the interference of external market manipulation.
+            While centralized exchanges trade on volatility, our DEX trades on Consensus. We support the GCV $314.159 standard, empowering Pioneers to realize the true utility value of their mining efforts.
           </motion.p>
 
           <motion.button
             variants={slideIn('up', 'spring', 0.8, 0.75)}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="mt-8 flex flex-row justify-center items-center gap-4 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-2xl px-10 py-5 font-bold text-white shadow-xl shadow-yellow-500/20 hover:shadow-yellow-500/40 transition-all duration-300 w-full sm:w-fit"
+            className="mt-8 flex flex-row justify-center items-center gap-4 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-2xl px-10 py-5 font-bold text-white shadow-xl shadow-yellow-500/20 hover:shadow-yellow-500/40 transition-all duration-300 w-full sm:w-fit active:scale-95"
             onClick={navigate}
           >
             <span className="text-xl font-lexend">Launch Swap App</span>
             <CornerDownRight className="w-5 h-5" />
           </motion.button>
 
-          <div className="flex items-center gap-6 mt-8 opacity-70">
+          <div className="flex items-center gap-6 mt-10 lg:mt-12 opacity-80">
             <div className="flex flex-col">
-              <span className="text-2xl font-bold font-lexend text-white text-glow">40M+</span>
-              <span className="text-sm text-gray-400 uppercase tracking-wider">Engaged Pioneers</span>
+              <span className="text-3xl lg:text-4xl font-bold font-lexend text-white text-glow">40M+</span>
+              <span className="text-xs lg:text-sm text-gray-400 uppercase tracking-widest font-semibold">Pioneers</span>
             </div>
-            <div className="w-px h-12 bg-gray-700" />
+            <div className="w-px h-12 bg-white/10" />
             <div className="flex flex-col">
-              <span className="text-2xl font-bold font-lexend text-white text-glow">$1.2B</span>
-              <span className="text-sm text-gray-400 uppercase tracking-wider">Community Liquidity</span>
+              <span className="text-3xl lg:text-4xl font-bold font-lexend text-white text-glow">$1.2B</span>
+              <span className="text-xs lg:text-sm text-gray-400 uppercase tracking-widest font-semibold">Liquidity</span>
             </div>
           </div>
 
-          <div className="w-full mt-10 overflow-hidden bg-white/5 border-y border-white/10 py-4 glass-panel rounded-lg">
-            <div className="flex gap-10 items-center whitespace-nowrap animate-marquee text-sm font-medium text-gray-300">
+          <div className="w-full mt-10 overflow-hidden bg-white/5 border-y border-white/10 py-4 glass-panel rounded-xl lg:rounded-2xl">
+            <div className="flex gap-10 items-center whitespace-nowrap animate-marquee text-sm font-medium text-gray-300/90 select-none">
               <span className="flex items-center gap-2"><Check className="w-4 h-4 text-green-400" /> Protocol v23 Ready</span>
               <span className="flex items-center gap-2"><Check className="w-4 h-4 text-yellow-400" /> CertiK 2026 Audited</span>
               <span className="flex items-center gap-2"><Check className="w-4 h-4 text-purple-400" /> Non-Custodial Secure</span>
               <span className="flex items-center gap-2"><Check className="w-4 h-4 text-orange-400" /> $314 GCV Supported</span>
+              {/* Duplicate for seamless loop */}
               <span className="flex items-center gap-2"><Check className="w-4 h-4 text-green-400" /> Protocol v23 Ready</span>
               <span className="flex items-center gap-2"><Check className="w-4 h-4 text-yellow-400" /> CertiK 2026 Audited</span>
               <span className="flex items-center gap-2"><Check className="w-4 h-4 text-purple-400" /> Non-Custodial Secure</span>
@@ -118,28 +119,33 @@ const Landing = () => {
 
         <motion.div
           variants={slideIn('right', 'tween', 0.3, 1)}
-          className="lg:w-1/2 relative mt-16 lg:mt-0 flex justify-center items-center"
+          className="lg:w-1/2 relative mt-16 lg:mt-0 flex justify-center items-center w-full"
         >
-          {/* Ambient glowing orb behind the image */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-purple-600/30 blur-[100px] rounded-full mix-blend-screen" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] bg-purple-600/20 blur-[100px] rounded-full mix-blend-screen pointer-events-none" />
 
-          <Image
-            src="/pi_video-6.webp"
-            alt="Pi Network App"
-            width={600}
-            height={600}
-            className="relative z-10 drop-shadow-2xl hover:-translate-y-4 transition-transform duration-700"
-            priority
-          />
+          <div className="relative w-full max-w-[320px] sm:max-w-md lg:max-w-xl px-6 lg:px-0">
+            <Image
+              src="/pi_video-6.webp"
+              alt="Pi Network App"
+              width={600}
+              height={600}
+              className="relative z-10 drop-shadow-2xl lg:hover:-translate-y-4 transition-transform duration-700 w-full h-auto rounded-3xl lg:rounded-[3rem]"
+              priority
+            />
+          </div>
         </motion.div>
       </div>
 
 
       {/**Download section */}
-      <DownloadSection />
+      <div className="mt-20 lg:mt-32">
+        <DownloadSection />
+      </div>
 
       {/**Footer */}
-      <Footer />
+      <div className="hidden md:block">
+        <Footer />
+      </div>
     </motion.div>
   );
 };

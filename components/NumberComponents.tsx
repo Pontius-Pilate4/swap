@@ -160,15 +160,17 @@ const NumberInput: React.FC<NumberInputProps> = ({ multiplier }) => {
         </button>
       </div>
 
-      {/* Real-time Ticker Toast */}
-      {toastMessage && (
-        <div key={toastMessage} className="fixed bottom-24 left-4 z-50 glass-panel md:bottom-8 px-4 py-3 rounded-xl flex items-center gap-3 animate-toast shadow-2xl border-l-4 border-l-yellow-400">
-          <div className="w-8 h-8 rounded-full bg-purple-900 flex items-center justify-center">
-            <span className="text-yellow-400 font-bold text-xs">PI</span>
+      {/* Real-time Ticker Toast - Fixed height to prevent jitter */}
+      <div className="h-16 pointer-events-none relative z-50">
+        {toastMessage && (
+          <div key={toastMessage} className="fixed bottom-24 left-4 glass-panel md:bottom-8 px-4 py-3 rounded-xl flex items-center gap-3 animate-toast shadow-2xl border-l-4 border-l-yellow-400 pointer-events-auto">
+            <div className="w-8 h-8 rounded-full bg-purple-900 flex items-center justify-center">
+              <span className="text-yellow-400 font-bold text-xs">PI</span>
+            </div>
+            <p className="text-sm font-medium text-gray-200">{toastMessage}</p>
           </div>
-          <p className="text-sm font-medium text-gray-200">{toastMessage}</p>
-        </div>
-      )}
+        )}
+      </div>
 
       <SwapFlowModal
         isOpen={isModalOpen}

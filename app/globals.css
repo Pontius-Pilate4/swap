@@ -17,8 +17,15 @@
   }
 
   body {
-    @apply text-white min-h-screen;
+    @apply text-white min-h-screen antialiased overflow-x-hidden;
     background: radial-gradient(circle at top right, var(--navy-bg), var(--pitch-black) 80%);
+    text-rendering: optimizeLegibility;
+  }
+}
+
+@layer components {
+  .text-balance {
+    text-wrap: balance;
   }
 }
 
@@ -81,31 +88,31 @@
   }
 
   .padding {
-    @apply sm:px-16 px-8 sm:py-24 py-20;
+    @apply lg:px-16 px-6 lg:py-24 py-16;
   }
 
   .padding-x {
-    @apply sm:px-16 px-8;
+    @apply lg:px-16 px-6;
   }
 
   .padding-y {
-    @apply sm:py-24 py-12;
+    @apply lg:py-24 py-12;
   }
 
   .padding-l {
-    @apply sm:pl-16 pl-8;
+    @apply lg:pl-16 pl-6;
   }
 
   .padding-r {
-    @apply sm:pr-16 pr-8;
+    @apply lg:pr-16 pr-6;
   }
 
   .padding-t {
-    @apply sm:pt-24 pt-12;
+    @apply lg:pt-24 pt-12;
   }
 
   .padding-b {
-    @apply sm:pb-24 pb-12;
+    @apply lg:pb-24 pb-12;
   }
 }
 

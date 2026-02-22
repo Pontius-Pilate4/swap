@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 const Footer = () => {
   return (
-    <footer className="flex flex-col bg-[#050505] border-t border-white/5 min-h-[200px] justify-between items-center padding-x padding-y">
+    <footer className="hidden flex-col bg-[#050505] border-t border-white/5 min-h-[200px] justify-between items-center padding-x padding-y">
       <div className="flex flex-col sm:flex-row gap-[100px] lg:gap-[500px]">
         <div className="flex flex-col gap-5 ">
           {footerLinks1.map((link, index) => (

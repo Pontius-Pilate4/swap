@@ -102,18 +102,16 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       const offset = window.scrollY;
-
-      const navbarColor =
-        offset > navbarHeight ? 'bg-[#0b0f19]/80 backdrop-blur-md border-b border-white/5' : 'bg-transparent';
-      setNavbarColor(navbarColor);
+      const threshold = 20;
+      const color = offset > threshold
+        ? 'bg-[#0b0f19]/80 backdrop-blur-xl border-b border-white/10'
+        : 'bg-transparent';
+      setNavbarColor(color);
     };
 
     window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [navbarHeight]);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   return (
     <motion.section
       variants={staggerContainer(0.1, 0.1)}
@@ -138,14 +136,14 @@ const Navbar = () => {
           >
             <a
               href="/"
-              className=" hover:scale-105 active:scale-100 transition-all duration-200 hover:text-white cursor-pointer"
+              className="hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer flex-shrink-0"
             >
               <Image
                 src="/Pi-Network.webp"
                 alt="Pi-Network"
                 width={300}
                 height={300}
-                className="w-[200px] xs:w-[250px] sm:w-[300px] drop-shadow-lg transition-all duration-300"
+                className="w-[180px] xs:w-[220px] sm:w-[280px] transition-all duration-300"
               />
             </a>
 
@@ -284,38 +282,27 @@ const Navbar = () => {
             </div>
 
             {/**Mobile nav */}
-            <div className="flex flex-row ml-[150px] md:ml-[500px] items-center lg:hidden  gap-7 ">
-              <Search
-                color="white"
-                className="w-7 h-7 hover:scale-110 active:scale-105 transition-all "
+            {/* Mobile Actions: Search & Hamburger */}
+            <div className="flex flex-row items-center lg:hidden ml-auto gap-4 xs:gap-6">
+              <button
                 onClick={toggleSearch}
-              />
-              {hamburgerClicked ? (
-                <motion.div
-                  variants={variants}
-                  initial="hidden"
-                  whileInView="visible"
-                  transition={{
-                    delay: 0.75,
-                    ease: 'easeInOut',
-                    duration: 0.5,
-                  }}
-                >
-                  <X
-                    color="white"
-                    className="w-7 h-7 hover:scale-110 active:scale-105 transition-all "
-                    onClick={toggleMobileNavigation}
-                  />
-                </motion.div>
-              ) : (
-                <motion.div>
-                  <Menu
-                    color="white"
-                    className="w-7 h-7 hover:scale-110 active:scale-105 transition-all "
-                    onClick={toggleMobileNavigation}
-                  />
-                </motion.div>
-              )}
+                className="p-2 -mr-2 text-white/70 hover:text-white active:scale-90 transition-all"
+                aria-label="Search"
+              >
+                <Search className="w-6 h-6" />
+              </button>
+
+              <button
+                onClick={toggleMobileNavigation}
+                className="p-2 -mr-2 text-white/90 hover:text-white active:scale-90 transition-all"
+                aria-label="Menu"
+              >
+                {hamburgerClicked ? (
+                  <X className="w-8 h-8" />
+                ) : (
+                  <Menu className="w-8 h-8" />
+                )}
+              </button>
             </div>
           </motion.nav>
         </AnimatePresence>

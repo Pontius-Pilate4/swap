@@ -1,136 +1,89 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { navLinks, PiBlockchain, PiDeveloper, socialLinks } from '@/constants';
-import { staggerContainer, slideIn } from '@/utils/motion';
+import { navLinks, socialLinks } from '@/constants';
 import Link from 'next/link';
 import { useActiveContext } from '@/context/active-context';
 
 const MobileNav = () => {
-  const { activeSection, setActiveSection } = useActiveContext();
+  const { hamburgerClicked, setHamburgerClicked } = useActiveContext();
 
-  const variants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 },
+  const menuVariants = {
+    closed: {
+      opacity: 0,
+      scale: 0.95,
+      transition: {
+        staggerChildren: 0.05,
+        staggerDirection: -1
+      }
+    },
+    open: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
   };
 
+  const itemVariants = {
+    closed: { opacity: 0, y: 20 },
+    open: { opacity: 1, y: 0 }
+  };
+
+  const closeMenu = () => setHamburgerClicked(false);
+
   return (
-    <motion.section
-      variants={staggerContainer(0.1, 0.1)}
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: false, amount: 0.25 }}
-      className="flex justify-center min-h-[4000px] bg-[#1D0630] bg-banner bg-cover padding-x opacity-95 backdrop:blur-md w-full"
+    <motion.div
+      initial="closed"
+      animate={hamburgerClicked ? "open" : "closed"}
+      variants={menuVariants}
+      className={`fixed inset-0 z-40 bg-[#0b0f19]/95 backdrop-blur-2xl flex flex-col justify-center items-center px-6 transition-all duration-300 ${hamburgerClicked ? 'pointer-events-auto' : 'pointer-events-none'}`}
     >
-      {activeSection === 'Pi Blockchain' && (
-        <motion.div
-          variants={variants}
-          initial="hidden"
-          whileInView="visible"
-          transition={{
-            delay: 0.1,
-            ease: 'easeInOut',
-            duration: 0.5,
-          }}
-          className="flex flex-col items-center justify-center fixed z-50 top-[250px] "
-        >
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-[-10%] left-[-10%] w-[400px] h-[400px] bg-purple-600/20 blur-[100px] rounded-full" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-indigo-900/30 blur-[120px] rounded-full" />
+      </div>
+
+      <nav className="relative z-10 flex flex-col items-center gap-8 w-full max-w-sm">
+        {navLinks.map((link, index) => (
+          <motion.div key={index} variants={itemVariants} className="w-full text-center">
+            <Link
+              href={link.link}
+              onClick={closeMenu}
+              className="text-4xl xs:text-5xl font-lexend font-bold text-white hover:text-purple-400 transition-colors tracking-tight"
+            >
+              {link.name}
+            </Link>
+          </motion.div>
+        ))}
+
+        <motion.div variants={itemVariants} className="mt-8 w-full">
           <button
-            className=" font-lexend font-extrabold text-white text-[20px] mb-5"
-            onClick={() => setActiveSection('Blog')}
+            onClick={() => { closeMenu(); window.location.href = '/calculator'; }}
+            className="w-full py-5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl font-bold text-xl shadow-xl shadow-purple-500/20 active:scale-95 transition-all text-white"
           >
-            Back
+            Launch Swap App
           </button>
-          {PiBlockchain.map((link, index) => (
-            <Link
-              href="/"
+        </motion.div>
+
+        <motion.div variants={itemVariants} className="flex gap-8 mt-12">
+          {socialLinks.map((link, index) => (
+            <a
               key={index}
-              className="font-lexend font-extrabold text-white text-[30px] gap-7 "
+              href={link.link}
+              target="_blank"
+              rel="noreferrer"
+              className="p-3 bg-white/5 rounded-full border border-white/10 hover:bg-purple-500/20 transition-all text-white/80 hover:text-white"
             >
-              <p className="hover:scale-110 active:scale-105 duration-200 transition-all mt-3">
-                {link.name}
-              </p>
-            </Link>
+              <div className="w-6 h-6">{link.icon}</div>
+            </a>
           ))}
         </motion.div>
-      )}
-
-      {activeSection === 'Pi Developers' && (
-        <motion.div
-          variants={variants}
-          initial="hidden"
-          whileInView="visible"
-          transition={{
-            delay: 0.1,
-            ease: 'easeInOut',
-            duration: 0.5,
-          }}
-          className="flex flex-col items-center justify-center fixed z-50 top-[250px] "
-        >
-          <button
-            className=" font-lexend font-extrabold text-white text-[20px] mb-5"
-            onClick={() => setActiveSection('Blog')}
-          >
-            Back
-          </button>
-          {PiDeveloper.map((link, index) => (
-            <Link
-              href="/"
-              key={index}
-              className="font-lexend font-extrabold text-white text-[30px] gap-7 "
-            >
-              <p className="hover:scale-110 active:scale-105 duration-200 transition-all mt-3">
-                {link.name}
-              </p>
-            </Link>
-          ))}
-        </motion.div>
-      )}
-
-      {(activeSection === 'Blog' ||
-        activeSection === 'About Us' ||
-        activeSection === 'Support') && (
-        <motion.div
-          variants={variants}
-          initial="hidden"
-          whileInView="visible"
-          transition={{
-            delay: 0.1,
-            ease: 'easeInOut',
-            duration: 0.5,
-          }}
-          className="flex flex-col items-center justify-center fixed z-50 top-[250px] "
-        >
-          {navLinks.map((link, index) => (
-            <Link
-              href="/"
-              key={index}
-              className="font-lexend font-extrabold text-white text-[30px] gap-[25px] hover:scale-110 active:scale-105 duration-200 transition-all"
-              onClick={() => setActiveSection(link.name)}
-            >
-              <p className="hover:scale-110 active:scale-105 duration-200 transition-all mt-3">
-                {link.name}
-              </p>
-            </Link>
-          ))}
-
-          <div className=" flex flex-row gap-5 mt-[100px] items-center">
-            {socialLinks.map((link, index) => (
-              <motion.a
-                variants={slideIn('left', 'spring', index * 0.25, 0.75)}
-                initial="hidden"
-                whileInView={`show`}
-                href={link.link}
-                key={index}
-                target="_blank"
-                className=" hover:scale-110 active:scale-105 duration-200 transition-all"
-              >
-                {link.icon}
-              </motion.a>
-            ))}
-          </div>
-        </motion.div>
-      )}
-    </motion.section>
+      </nav>
+    </motion.div>
   );
 };
+
 export default MobileNav;

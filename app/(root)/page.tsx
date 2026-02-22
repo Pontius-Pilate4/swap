@@ -55,7 +55,7 @@ const Landing = () => {
           </motion.div>
         )}
       </AnimatePresence>
-      <div className="flex flex-col lg:flex-row min-h-screen padding-x relative z-10 items-center lg:items-center pt-28 lg:pt-0">
+      <div className="flex flex-col lg:flex-row min-h-screen padding-x relative z-10 items-center lg:items-center pt-28 lg:pt-0 max-w-full overflow-x-hidden">
         <div className="flex flex-col gap-6 lg:w-1/2 z-20 text-center lg:text-left items-center lg:items-start">
           <motion.div
             variants={slideIn('left', 'tween', 0.2, 0.75)}
@@ -102,7 +102,7 @@ const Landing = () => {
             </div>
           </div>
 
-          <div className="w-full mt-10 overflow-hidden bg-white/5 border-y border-white/10 py-4 glass-panel rounded-xl lg:rounded-2xl">
+          <div className="w-full max-w-full mt-10 overflow-hidden bg-white/5 border-y border-white/10 py-4 glass-panel rounded-xl lg:rounded-2xl">
             <div className="flex gap-10 items-center whitespace-nowrap animate-marquee text-sm font-medium text-gray-300/90 select-none">
               <span className="flex items-center gap-2"><Check className="w-4 h-4 text-green-400" /> Protocol v23 Ready</span>
               <span className="flex items-center gap-2"><Check className="w-4 h-4 text-yellow-400" /> CertiK 2026 Audited</span>

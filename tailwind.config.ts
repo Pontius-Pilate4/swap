@@ -11,6 +11,9 @@ const config: Config = {
       backgroundImage: {
         banner: "url('/background.png')",
       },
+      screens: {
+        'xs': '320px',
+      },
 
       fontFamily: {
         work: ['Work Sans', 'sans-serif'],

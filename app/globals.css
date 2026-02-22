@@ -95,6 +95,12 @@
     @apply lg:px-16 px-6;
   }
 
+  @media (max-width: 360px) {
+    .padding-x {
+      @apply px-4;
+    }
+  }
+
   .padding-y {
     @apply lg:py-24 py-12;
   }

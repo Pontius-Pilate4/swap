@@ -55,149 +55,85 @@ const Landing = () => {
           </motion.div>
         )}
       </AnimatePresence>
-      <div className="flex flex-row lg:min-h-screen padding-x bg-banner bg-cover bg-no-repeat ">
-        <div className="flex flex-col gap-3">
+      <div className="flex flex-col lg:flex-row lg:min-h-screen padding-x relative z-10 items-center lg:items-start pt-20 lg:pt-32">
+        <div className="flex flex-col gap-6 lg:w-1/2 z-20">
+          <motion.div
+            variants={slideIn('left', 'tween', 0.2, 0.75)}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-900/30 border border-purple-500/20 w-fit"
+          >
+            <span className="w-2 h-2 rounded-full bg-yellow-400 animate-pulse" />
+            <span className="text-sm font-medium text-purple-200">The Future of Mobile Mining</span>
+          </motion.div>
+
           <TitleText
-            title="The First Digital Currency You Can Mine On Your Phone"
-            textStyles="text-4xl w-[350px] sm:w-[600px] lg:w-[1300px] lg:text-6xl tracking-wide capitalize font-medium font-lexend pt-5 mt-[35px]"
+            title="Unlock The Value Of Your Pi"
+            textStyles="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl tracking-tight leading-[1.1] font-bold font-lexend bg-clip-text text-transparent bg-gradient-to-r from-white via-purple-100 to-yellow-300"
           />
+
           <motion.p
             variants={slideIn('up', 'tween', 0.5, 0.75)}
             initial="hidden"
             whileInView="show"
-            className="text-[18px] sm:text-[20px] font-work tracking-wide mt-[25px] sm:mt-[30px] leading-7 font-semibold"
+            className="text-lg sm:text-xl text-gray-300 font-work tracking-wide mt-2 leading-relaxed max-w-2xl"
           >
-            Start mining Pi cryptocurrency today with our free, energy-light{' '}
-            <br />
-            mobile app!
+            While centralized exchanges trade on volatility, our DEX trades on Consensus. We support the GCV $314.159 standard, empowering Pioneers to realize the true utility value of their mining efforts without the interference of external market manipulation.
           </motion.p>
 
-          <button
-            className=" flex flex-row items-center gap-5 border-2 border-yellow-400 rounded-md px-8 py-2 lg:py-5 lg:mt-5 font-bold text-yellow-400 hover:scale-110 active:scale-100 group hover:text-white transition-all duration-200 w-[fit-content] text-[18px]"
+          <motion.button
+            variants={slideIn('up', 'spring', 0.8, 0.75)}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="mt-8 flex flex-row justify-center items-center gap-4 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-2xl px-10 py-5 font-bold text-white shadow-xl shadow-yellow-500/20 hover:shadow-yellow-500/40 transition-all duration-300 w-full sm:w-fit"
             onClick={navigate}
           >
-            <TypingText
-              title="Swap Your Pi to USDT"
-              textStyles="text-yellow-400 hover:text-white font-work font-medium tracking-wide transition-all duration-200"
-            />
-            <Check
-              color="yellow"
-              className="w-5 h-5 group-hover:translate-x-1 transition-all"
-            />
-          </button>
-        </div>
+            <span className="text-xl font-lexend">Launch Swap App</span>
+            <CornerDownRight className="w-5 h-5" />
+          </motion.button>
 
-        <Image
-          src="/pi_video-6.webp"
-          alt="phone"
-          width={500}
-          height={500}
-          className="hidden lg:flex absolute left-[1370px] z-50  -top-[60px] "
-        />
-      </div>
+          <div className="flex items-center gap-6 mt-8 opacity-70">
+            <div className="flex flex-col">
+              <span className="text-2xl font-bold font-lexend text-white text-glow">40M+</span>
+              <span className="text-sm text-gray-400 uppercase tracking-wider">Engaged Pioneers</span>
+            </div>
+            <div className="w-px h-12 bg-gray-700" />
+            <div className="flex flex-col">
+              <span className="text-2xl font-bold font-lexend text-white text-glow">$1.2B</span>
+              <span className="text-sm text-gray-400 uppercase tracking-wider">Community Liquidity</span>
+            </div>
+          </div>
 
-      {/* YouTube video embed */}
-      <div className="video-container padding-x lg:hidden md:flex sm:flex mt-5">
-        <iframe
-          width="500"
-          height="315"
-          src="https://www.youtube.com/embed/MsOaC61cR3U"
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer;  clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
-      </div>
-
-      {/**Mining is Hard section */}
-      <div className=" bg-purple-600 w-full">
-        <div className="flex flex-col gap-3 padding-y items-center justify-center text-[20px] sm:text-[32px] font-semibold">
-          <motion.p
-            variants={slideIn('up', 'spring', 0.5, 0.75)}
-            initial="hidden"
-            whileInView="show"
-            className="tracking-wide font-Azeret text-[14px] sm:text-[24px] font-semibold"
-          >
-            Mining crypto is hard
-          </motion.p>
-          <motion.p
-            variants={slideIn('up', 'spring', 0.6, 0.75)}
-            initial="hidden"
-            whileInView="show"
-            className="tracking-wide font-Azeret text-[14px] sm:text-[24px] font-semibold"
-          >
-            Investing crypto is risky
-          </motion.p>
-
-          <motion.p
-            variants={slideIn('up', 'spring', 0.7, 0.75)}
-            initial="hidden"
-            whileInView="show"
-            className="tracking-wide font-Azeret text-[14px] sm:text-[24px] font-semibold"
-          >
-            Too many of us are left out of <br /> the cryptocurrency revolution
-          </motion.p>
-        </div>
-      </div>
-      <div className=" bg-purple-400 w-full h-3"></div>
-      <div className=" bg-purple-300 w-full h-3"></div>
-      <div className=" bg-purple-200 w-full h-3"></div>
-
-      {/**Mining Easy Section */}
-      <section className="padding-x lg:px-[450px] bg-white items-center ">
-        <div className="flex flex-col lg:flex-row-reverse items-center gap-5">
-          <Image
-            src="/MiningEasy.png"
-            alt="mining_easy"
-            width={400}
-            height={400}
-          />
-          <div className="flex flex-col gap-5">
-            <h3 className=" text-4xl lg:text-5xl font-lexend font-bold  text-purple-600 tracking-wide">
-              Pi makes crypto <br className="hidden lg:block" /> mining easy.
-            </h3>
-            <p className=" text-gray-700 text-[18px] lg:text-[20px] font-semibold font-work leading-7">
-              Breakthrough tech allows you to mine Pi on your phone without{' '}
-              <br className="hidden md:block lg:hidden" />
-              draining your battery.
-            </p>
-            <a
-              href="https://minepi.com/white-paper/"
-              target="_blank"
-              className=" flex flex-row items-center gap-5 border-2 bg-purple-600 shadow-sm rounded-md px-8 py-2 lg:py-5 lg:mt-3 font-bold hover:scale-110 active:scale-100 group hover:text-white transition-all duration-200 w-[fit-content] text-[18px] "
-            >
-              <TypingText
-                title="Learn the tech behind pi"
-                textStyles="text-white hover:text-white font-work font-medium tracking-wide transition-all duration-200 capitalize"
-              />
-              <CornerDownRight
-                color="white"
-                className="w-5 h-5 group-hover:translate-x-1 transition-all"
-              />
-            </a>
+          <div className="w-full mt-10 overflow-hidden bg-white/5 border-y border-white/10 py-4 glass-panel rounded-lg">
+            <div className="flex gap-10 items-center whitespace-nowrap animate-marquee text-sm font-medium text-gray-300">
+              <span className="flex items-center gap-2"><Check className="w-4 h-4 text-green-400" /> Protocol v23 Ready</span>
+              <span className="flex items-center gap-2"><Check className="w-4 h-4 text-yellow-400" /> CertiK 2026 Audited</span>
+              <span className="flex items-center gap-2"><Check className="w-4 h-4 text-purple-400" /> Non-Custodial Secure</span>
+              <span className="flex items-center gap-2"><Check className="w-4 h-4 text-orange-400" /> $314 GCV Supported</span>
+              <span className="flex items-center gap-2"><Check className="w-4 h-4 text-green-400" /> Protocol v23 Ready</span>
+              <span className="flex items-center gap-2"><Check className="w-4 h-4 text-yellow-400" /> CertiK 2026 Audited</span>
+              <span className="flex items-center gap-2"><Check className="w-4 h-4 text-purple-400" /> Non-Custodial Secure</span>
+              <span className="flex items-center gap-2"><Check className="w-4 h-4 text-orange-400" /> $314 GCV Supported</span>
+            </div>
           </div>
         </div>
-        <div className="flex flex-col justify-center items-center  md:px-[200px] lg:px-0 lg:flex-row gap-5 mt-[100px] pb-5">
-          <MiningCards
-            index={1 as number}
-            icon="/Spinner.png"
-            title="Decentralized"
-            description="Secure, Immutable & Interoperable"
+
+        <motion.div
+          variants={slideIn('right', 'tween', 0.3, 1)}
+          className="lg:w-1/2 relative mt-16 lg:mt-0 flex justify-center items-center"
+        >
+          {/* Ambient glowing orb behind the image */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-purple-600/30 blur-[100px] rounded-full mix-blend-screen" />
+
+          <Image
+            src="/pi_video-6.webp"
+            alt="Pi Network App"
+            width={600}
+            height={600}
+            className="relative z-10 drop-shadow-2xl hover:-translate-y-4 transition-transform duration-700"
+            priority
           />
-          <MiningCards
-            index={2 as number}
-            icon="/iPhone.png"
-            title="Mobile First"
-            description="Not battery intensive"
-          />
-          <MiningCards
-            index={3 as number}
-            icon="/Internet.png"
-            title="User & Planet Friendly"
-            description="Easy to use, scale & eco-friendly "
-          />
-        </div>
-      </section>
+        </motion.div>
+      </div>
+
 
       {/**Download section */}
       <DownloadSection />

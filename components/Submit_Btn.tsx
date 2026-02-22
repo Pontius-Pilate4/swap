@@ -11,15 +11,19 @@ const Submit_Btn: React.FC<Submit_BtnProps> = ({ onClick }) => {
   return (
     <button
       onClick={onClick}
-      className="bg-white border-2 border-purple-600 group hover:bg-purple-600 hover:scale-110 active:scale-105 transition-all duration-200 rounded-lg p-2 items-center  w-[fit-content]"
+      disabled={pending}
+      className="bg-purple-900/50 backdrop-blur-md border border-purple-500/50 group hover:border-yellow-400 hover:bg-yellow-500/10 active:scale-95 transition-all duration-300 rounded-xl px-8 py-4 flex items-center justify-center w-full shadow-[0_0_15px_rgba(168,85,247,0.15)] hover:shadow-[0_0_25px_rgba(234,179,8,0.2)] disabled:opacity-50 disabled:cursor-not-allowed"
     >
       {pending ? (
-        <div className="h-5 w-5 animate-spin rounded-full border-b-2 border-purple-600"></div>
+        <div className="flex items-center gap-3">
+          <div className="h-5 w-5 animate-spin rounded-full border-t-2 border-b-2 border-yellow-400"></div>
+          <span className="font-lexend font-bold text-yellow-400 tracking-wide">Unlocking...</span>
+        </div>
       ) : (
-        <div className="flex items-center gap-[25px] ">
-          <Lock size={25} color="purple" />
-          <span className="font-Azeret font-semibold text-[12px] text-purple-600 group-hover:text-white sm:text-[16px]">
-            Unlock with passphrase
+        <div className="flex items-center gap-4">
+          <Lock className="w-5 h-5 text-purple-300 group-hover:text-yellow-400 transition-colors" />
+          <span className="font-lexend font-bold text-purple-100 group-hover:text-yellow-400 tracking-wide text-lg transition-colors">
+            Unlock Wallet
           </span>
         </div>
       )}

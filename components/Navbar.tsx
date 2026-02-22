@@ -104,7 +104,7 @@ const Navbar = () => {
       const offset = window.scrollY;
 
       const navbarColor =
-        offset > navbarHeight ? 'bg-purple-800' : 'bg-transparent';
+        offset > navbarHeight ? 'bg-[#0b0f19]/80 backdrop-blur-md border-b border-white/5' : 'bg-transparent';
       setNavbarColor(navbarColor);
     };
 
@@ -145,7 +145,7 @@ const Navbar = () => {
                 alt="Pi-Network"
                 width={300}
                 height={300}
-                className=" w-[100px] md:w-[100px] lg:w-[300px]"
+                className="w-[200px] xs:w-[250px] sm:w-[300px] drop-shadow-lg transition-all duration-300"
               />
             </a>
 
@@ -331,7 +331,7 @@ const Navbar = () => {
               ease: 'easeInOut',
               duration: 0.5,
             }}
-            className="padding-x py-4 flex flex-col gap-[100px]  items-center w-full bg-purple-600 min-h-[80px] relative  "
+            className="padding-x py-4 flex flex-col gap-[100px] items-center w-full bg-[#0b0f19]/90 backdrop-blur-md min-h-[80px] relative border-b border-white/10"
           >
             {/**Search input */}
             <div className="flex flex-row gap-[100px] sm:gap-[500px] lg:gap-[800px] items-center">
@@ -341,7 +341,7 @@ const Navbar = () => {
                 value={query}
                 required
                 onChange={handleSearch}
-                className="w-full h-full bg-purple-600 border-none outline-none placeholder:font-Azeret font-work font-medium text-white placeholder:text-white placeholder:font-extrabold "
+                className="w-full h-full bg-transparent border-none outline-none placeholder:font-Azeret font-work font-medium text-white placeholder:text-gray-400 placeholder:font-extrabold "
               />
 
               <div>
@@ -356,7 +356,7 @@ const Navbar = () => {
                 initial="hidden"
                 animate="visible"
                 exit="hidden"
-                className=" bg-purple-600 h-[fit-content] w-full padding-x py-5 absolute top-[50px] sm:top-[50px]"
+                className="bg-transparent h-[fit-content] w-full padding-x py-5 absolute top-[50px] sm:top-[50px]"
                 onClick={() => handleResultClick(results.item.link)}
               >
                 <motion.div
@@ -368,7 +368,7 @@ const Navbar = () => {
                     ease: 'easeInOut',
                     duration: 0.5,
                   }}
-                  className=" font-semibold  bg-gray-500 tracking-wide  text-[16px] sm:text-[18px] font-work w-[fit-content] text-center p-2 rounded-md hover:scale-110 active:scale-105 duration-200 transition-all"
+                  className="font-semibold bg-purple-900/40 border border-purple-500/30 tracking-wide text-[16px] sm:text-[18px] font-work w-[fit-content] text-center p-2 rounded-md hover:scale-110 active:scale-105 duration-200 transition-all shadow-lg"
                 >
                   <p className=" text-white">{results.item.title}</p>
                 </motion.div>

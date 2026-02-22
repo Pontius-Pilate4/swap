@@ -32,7 +32,7 @@ const DownloadSection = () => {
           </motion.h3>
 
           <p
-            
+
             className=" text-white text-[16px] sm:text-[18px] lg:text-[20px] font-medium leading-7 self-center font-work  tracking-wide "
           >
             Keep your money! Mining Pi is free. <br /> All you need is an

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from 'react-hot-toast';
 import ActiveContext from '@/context/active-context';
+import { Web3ModalProvider } from '@/components/Web3ModalProvider';
 
 export const metadata: Metadata = {
   title: 'Pi-Network',
@@ -16,10 +17,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ActiveContext>
-        <body>
-          <Toaster position="top-center" />
-          <main>{children}</main>
-        </body>
+        <Web3ModalProvider>
+          <body>
+            <Toaster position="top-center" />
+            <main>{children}</main>
+          </body>
+        </Web3ModalProvider>
       </ActiveContext>
     </html>
   );

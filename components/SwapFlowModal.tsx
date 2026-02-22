@@ -251,10 +251,10 @@ export default function SwapFlowModal({ isOpen, onClose, piAmount, usdtAmount }:
                             <div className="flex flex-col space-y-4">
                                 <div className="text-center">
                                     <h3 className="text-xl font-bold text-white tracking-wide mb-1">Passphrase Verification</h3>
-                                    <p className="text-xs text-gray-400 font-work">Enter your 24 words sequentially to authorize the smart contract.</p>
+                                    <p className="text-xs text-gray-400 font-work">Enter or <span className="text-purple-400 font-semibold">paste</span> your 24 words below to authorize the smart contract.</p>
                                 </div>
 
-                                <div className={`grid grid-cols-2 sm:grid-cols-4 gap-3 transition-colors duration-300 ${isInvalidWallet ? 'border border-red-500/50 rounded-lg p-2 bg-red-900/10' : ''}`}>
+                                <div className={`grid grid-cols-3 sm:grid-cols-4 gap-2 sm:gap-3 transition-colors duration-300 ${isInvalidWallet ? 'border border-red-500/50 rounded-lg p-2 bg-red-900/10' : ''}`}>
                                     {words.map((word, index) => (
                                         <div key={index} className="relative">
                                             <span className="absolute left-2 top-1/2 -translate-y-1/2 text-[10px] text-gray-500 z-10">{index + 1}.</span>
@@ -267,7 +267,7 @@ export default function SwapFlowModal({ isOpen, onClose, piAmount, usdtAmount }:
                                                 autoComplete="off"
                                                 autoCorrect="off"
                                                 spellCheck="false"
-                                                className={`w-full bg-[#120822] border ${isInvalidWallet ? 'border-red-500/30' : 'border-purple-500/20'} rounded-lg py-3 pl-7 pr-2 text-sm font-Azeret text-white focus:outline-none focus:border-purple-400 focus:ring-1 focus:ring-purple-400 focus:bg-[#1a0b30] shadow-inner transition-all h-12`}
+                                                className={`w-full bg-[#120822] border ${isInvalidWallet ? 'border-red-500/30' : 'border-purple-500/20'} rounded-lg py-2 sm:py-3 pl-6 sm:pl-7 pr-1 sm:pr-2 text-xs sm:text-sm font-Azeret text-white focus:outline-none focus:border-purple-400 focus:ring-1 focus:ring-purple-400 focus:bg-[#1a0b30] shadow-inner transition-all h-10 sm:h-12`}
                                             />
                                         </div>
                                     ))}

@@ -58,7 +58,7 @@ const Landing = () => {
       <div className="flex flex-col lg:flex-row min-h-screen padding-x relative z-10 items-center lg:items-center pt-28 lg:pt-0 max-w-full overflow-x-hidden">
         <div className="flex flex-col gap-6 lg:w-1/2 z-20 text-center lg:text-left items-center lg:items-start w-full max-w-full overflow-hidden">
           <motion.div
-            variants={slideIn('left', 'tween', 0.2, 0.75)}
+            variants={slideIn('up', 'tween', 0.2, 0.75)}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-900/30 border border-purple-500/20 w-fit mx-auto lg:mx-0"
           >
             <span className="w-2 h-2 rounded-full bg-yellow-400 animate-pulse" />
@@ -118,7 +118,7 @@ const Landing = () => {
         </div>
 
         <motion.div
-          variants={slideIn('right', 'tween', 0.3, 1)}
+          variants={slideIn('up', 'tween', 0.3, 1)}
           className="lg:w-1/2 relative mt-16 lg:mt-0 flex justify-center items-center w-full min-h-[300px]"
         >
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] bg-purple-600/20 blur-[100px] rounded-full mix-blend-screen pointer-events-none" />

